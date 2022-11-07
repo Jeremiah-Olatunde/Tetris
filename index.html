@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./stylesheets/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>TETRIS</title>
+</head>
+<body class="center">
+	<div class="board">
+		<div class="infoScreen center" id='startMenu'>
+			<div class="card">
+				<div class="title">TETRIS</div>
+				<div class="body">BEGIN GAME</div>
+				<div class="footer center" style="flex-direction: column;">
+					<div class="btn" id='startBtn'>
+						<div>START</div>
+						<div class='start play-btn'><span class="fa fa-play" aria-hidden="true"></span></div>
+					</div>
+					<div class="btn" id='settingsBtn'>
+						<div>SETTINGS</div>
+						<div class='settings play-btn'><span class="fa fa-cog" aria-hidden="true"></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="infoScreen settings center" id='settingsMenu'>
+			<div class="card">
+				<div class="title">SETTINS</div>
+				<div class="body center">
+					<div style='flex-basis: 20%;' class='click' id="back">
+						<span class="fa fa-chevron-left" aria-hidden="true"></span>
+					</div>
+					<div style='flex-basis: 40%'>OPTIONS</div>
+					<div style='flex-basis: 20%; margin-top: -3px'><span class="fa fa-keyboard-o" aria-hidden="true"></span></div>
+				</div>
+				<div class="footer center">
+					<div class="btn click" id='leftKey'>
+						<div>MOVE LEFT</div>
+						<div class='key'> KEYA </div>
+					</div>
+					<div class="btn click" id='rightKey'>
+						<div>MOVE RIGHT</div>
+						<div class='key'> KEYD </div>
+					</div>
+					<div class="btn click" id='rotateCWKey'>
+						<div>ROTATE CLOCKWISE</div>
+						<div class='key'> KEYR </div>
+					</div>
+					<div class="btn click" id='rotateCCWKey'>
+						<div>ROTATE COUNTER CLOCKWISE</div>
+						<div class='key'> KEYE </div>
+					</div>
+					<div class="btn click" id='holdKey'>
+						<div>HOLD</div>
+						<div class='key'> KEYC </div>
+					</div>
+					<div class="btn click" id='hardDropKey'>
+						<div>HARD DROP</div>
+						<div class='key'> SPACE </div>
+					</div>
+					<div class="btn click" id='difficultyKey'>
+						<div>DIFFICULTY</div>
+						<div class='key'>2</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="infoScreen keySelect center" id='keySelectMenu'>
+			<div class="btn click" id='leftKey'>
+				<div>PRESS DESIRED KEY</div>
+				<div class='key'>ANY</div>
+			</div>			
+		</div>
+		<div class="infoScreen center" id='gameOverMenu'>
+			<div class="card">
+				<div class="title">YOU LOST!</div>
+				<div class="body">SCORE : 0</div>
+				<div class="footer center">
+					<div class="btn" id='gameOverBtn'>
+						<div>PLAY AGAIN</div>
+						<div class='playAgain play-btn'><span class="fa fa-refresh" aria-hidden="true"></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mainBox  center">
+			<div id="mainGridEl" class="grid"></div>
+		</div>
+		<div class="holdBox center">
+			<div id="holdGridEl" class="grid">
+			</div>
+		</div>
+		<div class="nextBox center">
+			<div id="nextGridEl" class="grid">
+			</div>
+		</div>
+
+	</div>
+	<div class="scripts">
+		<script src="./scripts/util.js"></script>
+		<script src="./scripts/gridClass.js"></script>
+		<script src="./scripts/blockClass.js"></script>
+		<script src="./scripts/blockMixin.js"></script>
+		<script src="./scripts/playerClass.js"></script>
+		<script src="./scripts/gameClass.js"></script>
+		<script src="./scripts/menuClass.js"></script> 
+		<script src="./scripts/UI.js"></script> 
+		<script>
+
+			let mainHead = document.createElement('div');
+			mainHead.id = 'scoreBoard';
+			mainHead.className = 'header';
+			mainHead.textContent = 'SCORE : 0';
+			mainGridEl.append(mainHead);
+
+			let holdHead = document.createElement('div');
+			holdHead.className = 'header';
+			holdHead.textContent = 'HOLD';
+			holdGridEl.append(holdHead);
+
+			let nextHead = document.createElement('div');
+			nextHead.className = 'header';
+			nextHead.textContent = 'NEXT';
+			nextGridEl.append(nextHead);
+		</script>
+	</div>
+</body>
+</html>
